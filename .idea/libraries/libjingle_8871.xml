@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="libjingle-8871">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/webrtc-client/build/intermediates/exploded-aar/io.pristine/libjingle/8871/res" />
+      <root url="jar://$PROJECT_DIR$/webrtc-client/build/intermediates/exploded-aar/io.pristine/libjingle/8871/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webrtc-client/build/intermediates/exploded-aar/io.pristine/libjingle/8871/jars/libs/libjingle_peerconnection.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

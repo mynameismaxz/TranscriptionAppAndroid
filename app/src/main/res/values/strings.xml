@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Transcription Service</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_buttonlogin">Log in</string>
+    <string name="title">Transcription Service</string>
+    <string name="credit">Transcription Service :: KMUTT</string>
+
+    <string name="host">203.151.94.63</string>
+    <string name="ports">8007</string>
+</resources>
