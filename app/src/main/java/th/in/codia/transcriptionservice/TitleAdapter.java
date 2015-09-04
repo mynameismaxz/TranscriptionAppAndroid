@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Puri on 7/15/15 AD.
+ * Created by mynameismaxz on 7/15/15 AD.
  */
 public class TitleAdapter extends RecyclerView.Adapter<TitleViewHolder> {
 

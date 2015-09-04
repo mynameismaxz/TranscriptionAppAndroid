@@ -26,21 +26,19 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Puri on 8/5/15 AD.
+ * Created by mynameismaxz on 8/5/15 AD.
  */
 public class StreamActivity extends AppCompatActivity{
 
     private String Topic;
-    private String lang = "en_US"; // en_US
-    public static final String TAG = "Byakko";
+    private String lang = "th_TH"; // en_US
+    public static final String TAG = "TS";
     public static String send="";
     private boolean isASR = false;
     public int stage = 0;
     public static String finalString;
     private int count = 0;
     public static int isStream =0;
-    private String key = "icreate2015";
-    private String postASR = "http://203.151.94.63/transcription/asrpost.php";
     private Context context;
 
     private String easr="Please retry your query.\n" +
@@ -131,7 +129,15 @@ public class StreamActivity extends AppCompatActivity{
                     }
                     else{
                         isStream = 0;
+//                        Intent i = new Intent(MainMenuActivity.this, StreamActivity.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("topic", topics.get(position));
+//                        i.putExtras(bundle);
+//                        startActivity(i);
                         Intent i = new Intent(StreamActivity.this,WebRTCActivity.class);
+                        Bundle newBundle = new Bundle();
+                        newBundle.putString("topic", Topic);
+                        i.putExtras(newBundle);
                         startActivity(i);
                     }
                 }
@@ -232,7 +238,7 @@ private static final ScheduledExecutorService a1 = Executors.newSingleThreadSche
     }
 
 
-    /** Called when the activity is resumed.     */
+    /** Called when the activity is resumed. **/
     @Override
     public void onResume() {
         super.onResume();
@@ -308,7 +314,10 @@ private static final ScheduledExecutorService a1 = Executors.newSingleThreadSche
         EditText t = (EditText)findViewById(R.id.editStatus);
         if (t != null)
             t.setText(send);
-        new postToWeb(this.postASR).execute(this.key, finalString+" ");
+        new postToWeb("http://" + getResources().getString(R.string.host_web) + "/"
+                + getResources().getString(R.string.sub_folder_without_slash)
+                + getResources().getString(R.string.asrpost_php))
+                .execute(Topic, finalString + " ");
         //count to delete in dialog
         if (count==6){
             count=0;

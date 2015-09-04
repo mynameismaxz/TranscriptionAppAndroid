@@ -11,12 +11,13 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 
 /**
- * Created by Puri on 8/6/15 AD.
+ * Created by mynameismaxz on 8/6/15 AD.
  */
 public class postToWeb extends AsyncTask<String,Void,Void> {
 
     private String postURL;
 
+    // constructor
     public postToWeb(String Post){
         this.postURL = Post;
     }

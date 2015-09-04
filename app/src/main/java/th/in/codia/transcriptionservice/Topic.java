@@ -11,7 +11,7 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 
 /**
- * Created by Puri on 8/3/15 AD.
+ * Created by mynameismaxz on 8/3/15 AD.
  */
 public class Topic extends AsyncTask<String,Void,String> {
     String URL;

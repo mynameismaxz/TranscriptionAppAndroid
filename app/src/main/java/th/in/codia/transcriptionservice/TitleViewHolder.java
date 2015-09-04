@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 /**
- * Created by Puri on 7/15/15 AD.
+ * Created by mynameismaxz on 7/15/15 AD.
  */
 public class TitleViewHolder extends RecyclerView.ViewHolder {
     protected TextView Title;
