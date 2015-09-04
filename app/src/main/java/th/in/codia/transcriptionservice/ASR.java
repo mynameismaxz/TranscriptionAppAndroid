@@ -11,7 +11,7 @@ import com.nuance.nmdp.speechkit.SpeechError;
 import com.nuance.nmdp.speechkit.SpeechKit;
 
 /**
- * Created by Puri on 8/6/15 AD.
+ * Created by mynameismaxz on 8/6/15 AD.
  */
 
 public class ASR  {

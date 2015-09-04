@@ -9,6 +9,14 @@
     <string name="title">Transcription Service</string>
     <string name="credit">Transcription Service :: KMUTT</string>
 
+    <!--for webRTC using this parameters-->
     <string name="host">203.151.94.63</string>
     <string name="ports">8007</string>
+
+    <!--for web application using this parameters-->
+    <string name="host_web">203.151.94.63</string>
+    <string name="sub_folder_without_slash">transcription/</string>
+    <string name="chklogin_php">chkloginandroid.php</string>
+    <string name="gettopic_php">getTopicData.php</string>
+    <string name="asrpost_php">asrpost.php</string>
 </resources>

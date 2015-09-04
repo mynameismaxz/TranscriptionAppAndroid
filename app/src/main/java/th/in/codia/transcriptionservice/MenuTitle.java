@@ -1,7 +1,7 @@
 package th.in.codia.transcriptionservice;
 
 /**
- * Created by Puri on 7/15/15 AD.
+ * Created by mynameismaxz on 7/15/15 AD.
  */
 public class MenuTitle {
     private String Title;

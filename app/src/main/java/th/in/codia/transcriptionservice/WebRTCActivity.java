@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -20,7 +21,7 @@ import fr.pchab.webrtcclient.PeerConnectionParameters;
 import fr.pchab.webrtcclient.WebRtcClient;
 
 /**
- * Created by Puri on 8/6/15 AD.
+ * Created by mynameismaxz on 8/6/15 AD.
  */
 public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.RtcListener {
     private final static int VIDEO_CALL_SENT = 666;
@@ -48,6 +49,7 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
     private WebRtcClient client;
     private String mSocketAddress;
     private String callerId;
+    private String Topic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,7 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
         if (Intent.ACTION_VIEW.equals(action)) {
             final List<String> segments = intent.getData().getPathSegments();
             callerId = segments.get(0);
-            Log.d("Byakko",callerId);
+            Log.d("TS",callerId);
         }
     }
 
@@ -161,7 +163,11 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
 
     public void startCam() {
         // Camera settings
-        client.start("android_test");
+        Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        this.Topic = bundle.getString("topic");
+        Log.d("TS",this.Topic);
+        client.start(this.Topic);
     }
 
     @Override
@@ -176,11 +182,11 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
 
     @Override
     public void onLocalStream(MediaStream localStream) {
-        localStream.videoTracks.get(0).addRenderer(new VideoRenderer(localRender));
-        VideoRendererGui.update(localRender,
-                LOCAL_X_CONNECTING, LOCAL_Y_CONNECTING,
-                LOCAL_WIDTH_CONNECTING, LOCAL_HEIGHT_CONNECTING,
-                scalingType);
+//        localStream.videoTracks.get(0).addRenderer(new VideoRenderer(localRender));
+//        VideoRendererGui.update(localRender,
+//                LOCAL_X_CONNECTING, LOCAL_Y_CONNECTING,
+//                LOCAL_WIDTH_CONNECTING, LOCAL_HEIGHT_CONNECTING,
+//                scalingType);
     }
 
     @Override

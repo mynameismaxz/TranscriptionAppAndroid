@@ -12,7 +12,7 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 
 /**
- * Created by Puri on 7/12/15 AD.
+ * Created by mynameismaxz on 7/12/15 AD.
  */
 public class Login extends AsyncTask<String,Void,String> {
     private String URL;
