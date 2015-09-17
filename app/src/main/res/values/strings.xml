@@ -8,6 +8,10 @@
     <string name="login_buttonlogin">Log in</string>
     <string name="title">Transcription Service</string>
     <string name="credit">Transcription Service :: KMUTT</string>
+    <string name="streaming">Streaming ...</string>
+    <string name="stopStreaming">Stop Streaming</string>
+    <string name="muteMicrophone">Mute Microphone</string>
+    <string name="sponsor">Sponsor by :</string>
 
     <!--for webRTC using this parameters-->
     <string name="host">203.151.94.63</string>

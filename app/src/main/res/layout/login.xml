@@ -1,85 +1,118 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".LoginActivity">
+    tools:context=".LoginActivity">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText"
         android:layout_alignParentEnd="true">
+
         <EditText
+            android:id="@+id/textUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textUsername"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:hint="@string/login_username"/>
+            android:layout_centerVertical="true"
+            android:hint="@string/login_username" />
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true">
+
         <EditText
+            android:id="@+id/textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/textPassword"
             android:layout_below="@+id/textUsername"
             android:layout_centerHorizontal="true"
-            android:hint="@string/login_password"/>
+            android:ems="10"
+            android:hint="@string/login_password"
+            android:inputType="textPassword" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login_buttonlogin"
-        android:id="@+id/buttonLogin"
         android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp" />
+        android:layout_marginTop="29dp"
+        android:text="@string/login_buttonlogin" />
 
     <TextView
+        android:id="@+id/TvTS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/title"
-        android:id="@+id/TvTS"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp" />
+        android:layout_marginTop="54dp"
+        android:text="@string/title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/credit"
-        android:id="@+id/credits"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-    <FrameLayout
-        android:id="@+id/rootLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="16dp"
+        android:layout_toEndOf="@+id/glview_call"
+        android:text="@string/sponsor"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/fabBtn"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom|right"-->
-        <!--android:src="@drawable/ic_plus"-->
-        <!--app:fabSize="normal"-->
-        <!--app:borderWidth="0.1dp"/>-->
+    <ImageView
+        android:id="@+id/imgKMUTT"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignTop="@+id/imgLFPD"
+        android:layout_marginEnd="23dp"
+        android:layout_toStartOf="@+id/buttonLogin"
+        android:src="@drawable/logo_kmutt_resize" />
 
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/imgLFPD"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/logo_lfpd"
+        android:layout_alignTop="@+id/imgNECTEC"
+        android:layout_toEndOf="@+id/textView" />
 
+    <ImageView
+        android:id="@+id/imgNECTEC"
+        android:layout_width="90dp"
+        android:layout_height="64dp"
+        android:src="@drawable/logo_nectec"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imgLFPD" />
 
+    <ImageView
+        android:id="@+id/imgNTBC"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imgNECTEC"
+        android:src="@drawable/logo_ntbc" />
+
+    <!--<FrameLayout-->
+        <!--android:id="@+id/rootLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--&lt;!&ndash;TODO : LATER&ndash;&gt;-->
+
+    <!--</FrameLayout>-->
 
 
 </RelativeLayout>
