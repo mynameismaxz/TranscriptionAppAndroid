@@ -6,7 +6,9 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +53,9 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
     private String callerId;
     private String Topic;
 
+    public Button muteMicrophone, stopStreaming;
+    public TextView txtTopic;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +66,15 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
                         | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                         | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         setContentView(R.layout.webrtclayout);
+
+        Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        String txtTopicName = bundle.getString("topic");
+
+        muteMicrophone = (Button) findViewById(R.id.muteBtn);
+        stopStreaming = (Button) findViewById(R.id.btnStopStreaming);
+        txtTopic = (TextView) findViewById(R.id.txtTopic);
+
         mSocketAddress = "http://" + getResources().getString(R.string.host);
         mSocketAddress += (":" + getResources().getString(R.string.ports) + "/");
 
@@ -88,15 +102,36 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
         if (Intent.ACTION_VIEW.equals(action)) {
             final List<String> segments = intent.getData().getPathSegments();
             callerId = segments.get(0);
-            Log.d("TS",callerId);
+            Log.d("TS", callerId);
         }
+
+        txtTopic.setText("Topic name : " + txtTopicName);
+
+        stopStreaming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        muteMicrophone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(WebRTCActivity.this, "Under Construction", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void init() {
         Point displaySize = new Point();
         getWindowManager().getDefaultDisplay().getSize(displaySize);
+        // TODO : Set parameter for WebRTC Connection --> method PeerConnectionParameters
+        //        boolean videoCallEnabled, boolean loopback,
+        //        int videoWidth, int videoHeight, int videoFps, int videoStartBitrate,
+        //        String videoCodec, boolean videoCodecHwAcceleration,
+        //        int audioStartBitrate, String audioCodec,
+        //        boolean cpuOveruseDetection
         PeerConnectionParameters params = new PeerConnectionParameters(
-                true, false, displaySize.x, displaySize.y, 30, 1, VIDEO_CODEC_VP9, true, 1, AUDIO_CODEC_OPUS, true);
+                false, false, displaySize.x, displaySize.y, 30, 1, VIDEO_CODEC_VP9, false, 1, AUDIO_CODEC_OPUS, true);
 
         client = new WebRtcClient(this, mSocketAddress, params, VideoRendererGui.getEGLContext());
     }
@@ -105,7 +140,7 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
     public void onPause() {
         super.onPause();
         vsv.onPause();
-        if(client != null) {
+        if (client != null) {
             client.onPause();
         }
     }
@@ -114,17 +149,18 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
     public void onResume() {
         super.onResume();
         vsv.onResume();
-        if(client != null) {
+        if (client != null) {
             client.onResume();
         }
     }
 
     @Override
     public void onDestroy() {
-        if(client != null) {
+        if (client != null) {
             client.onDestroy();
         }
         super.onDestroy();
+        Log.d("TEST", "successful destroy activity");
     }
 
     @Override
@@ -166,7 +202,7 @@ public class WebRTCActivity extends AppCompatActivity implements WebRtcClient.Rt
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
         this.Topic = bundle.getString("topic");
-        Log.d("TS",this.Topic);
+        Log.d("TS", this.Topic);
         client.start(this.Topic);
     }
 

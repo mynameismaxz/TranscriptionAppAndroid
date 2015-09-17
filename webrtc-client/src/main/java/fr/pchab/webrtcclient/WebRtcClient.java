@@ -16,7 +16,7 @@ import org.webrtc.*;
 
 public class WebRtcClient {
     private final static String TAG = WebRtcClient.class.getCanonicalName();
-    private final static int MAX_PEER = 2;
+    private final static int MAX_PEER = 200;
     private boolean[] endPoints = new boolean[MAX_PEER];
     private PeerConnectionFactory factory;
     private HashMap<String, Peer> peers = new HashMap<>();
@@ -354,7 +354,7 @@ public class WebRtcClient {
 //        }
 
         AudioSource audioSource = factory.createAudioSource(new MediaConstraints());
-        localMS.addTrack(factory.createAudioTrack("ARDAMSa0", audioSource));
+        localMS.addTrack(factory.createAudioTrack("ARDAMSa0", audioSource) );
 
         mListener.onLocalStream(localMS);
     }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -9,21 +10,96 @@
         android:layout_gravity="center_horizontal">
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="58dp"
+            android:text="@string/streaming"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Streaming.. :)"
-            android:id="@+id/textView4"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="61dp" />
+            android:layout_below="@+id/glview_call"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Topic Name"
+            android:id="@+id/txtTopic"
+            android:layout_below="@+id/btnStopStreaming"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/muteBtn"
+            android:text="@string/muteMicrophone"
+            android:layout_below="@+id/textView4"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStopStreaming"
+            android:text="@string/stopStreaming"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/sponsor"
+            android:id="@+id/textView"
+            android:layout_marginBottom="70dp"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/glview_call" />
+
         <android.opengl.GLSurfaceView
             android:id="@+id/glview_call"
             android:layout_width="1px"
             android:layout_height="1px" />
+
         <android.view.SurfaceView
             android:id="@+id/preview"
             android:layout_width="1px"
             android:layout_height="1px" />
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/imgKMUTT"
+            android:src="@drawable/logo_kmutt_resize"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/muteBtn"
+            android:layout_marginBottom="5dp" />
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/imgLFPD"
+            android:src="@drawable/logo_lfpd"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/imgKMUTT"
+            android:layout_marginBottom="5dp" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="64dp"
+            android:id="@+id/imgNECTEC"
+            android:src="@drawable/logo_nectec"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/muteBtn"
+            android:layout_marginBottom="5dp" />
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/imgNTBC"
+            android:src="@drawable/logo_ntbc"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/imgNECTEC"
+            android:layout_marginBottom="5dp" />
+
     </RelativeLayout>
 </LinearLayout>

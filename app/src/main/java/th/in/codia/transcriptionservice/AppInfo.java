@@ -3,6 +3,7 @@ package th.in.codia.transcriptionservice;
 /**
  * Created by mynameismaxz on 8/6/15 AD.
  */
+
 public class AppInfo
 {
     /**
